@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
+      color: #fff;
+      overflow-y: hidden;
+    }
+    
+    
+    .slides-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      gap: 20px;
+    }
+
+    .slide {
+      width: 170px;
+      height: 200px;
+      background: #222;
+      border: 2px solid #ff66b2;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #ff66b2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      transition: transform 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    .slide p {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      margin: 0;
+      background-color: rgb(255, 255, 255);
+      color:#000;
+      font-size: 0.6rem;
+      padding: 5px;
+      border-radius: 15px;
+    }
+
+    .sprinkles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sprinkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #ff66b2;
+      border-radius: 50%;
+      animation: sprinkleFall 5s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes sprinkleFall {
+      0% {
+        transform: translateY(-10px) scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    .message {
+      text-align: center;
+      margin: 40px 0;
+      font-size: 1.2rem;
+      color: #ffccff;
+      text-shadow: 0 0 10px #ff99cc;
+    }
+
+    @media screen and (max-width: 768px) {
+      .slides-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .slide {
+        width: 80%;
+        height: 150px;
+      }
+    }
+    </style>
+</head>
+<body>
+    <div class="sprinkles" id="sprinkles"></div>
+    <div class="slides-container">
+        <div class="slide">
+            <img src="Akash.jpeg" alt="Slide 1">
+            <p>Wishing you many more return of the day 🎈</p>
+        </div>
+        <div class="slide">
+            <img src="Akash.jpeg" alt="Slide 2">
+            <p>I wish You have wonderful day on your birthday once again happy birthday ✨</p>
+        </div>
+  </div>
+
+  <!-- Final Message -->
+  <div class="message">🎁 Treat is more Important madam 💝</div>
+   <script>
+    // Sprinkle generator
+    const sprinkleContainer = document.getElementById('sprinkles');
+    for (let i = 0; i < 50; i++) {
+      const sprinkle = document.createElement('div');
+      sprinkle.classList.add('sprinkle');
+      sprinkle.style.left = Math.random() * 100 + 'vw';
+      sprinkle.style.animationDuration = 3 + Math.random() * 3 + 's';
+      sprinkle.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+      sprinkleContainer.appendChild(sprinkle);
+    }
+    </script>
+</body>
+</html>
