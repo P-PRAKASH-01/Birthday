@@ -14,9 +14,11 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh; /* 👈 changed from height to min-height */
       text-align: center;
-      gap: 20px; /* spacing between heading, cake, and button */
+      gap: 16px; /* spacing between elements */
+      padding: 20px; /* 👈 prevents items from sticking too low */
+      box-sizing: border-box;
     }
     h1 {
       font-size: clamp(32px, 6vw, 64px);
@@ -29,17 +31,17 @@
     }
     @keyframes shimmer { from { background-position:0% } to { background-position:400% } }
 
-    /* Cake styles */
-    .cake { position: relative; width: 220px; height: 200px; margin: auto; }
+    /* Cake */
+    .cake { position: relative; width: 200px; height: 180px; }
     .layer { position: absolute; left: 50%; transform: translateX(-50%); border-radius: 14px; }
-    .layer.base { bottom: 0; width: 100%; height: 80px; background: #ffc6db; }
-    .layer.mid { bottom: 80px; width: 80%; height: 60px; background: #ffd166; }
-    .layer.top { bottom: 140px; width: 60%; height: 40px; background: #9ad0f5; }
-    .candles { position: absolute; left: 50%; bottom: 180px; transform: translateX(-50%); display: flex; gap: 10px; }
-    .candle { width: 12px; height: 40px; background: repeating-linear-gradient(180deg,#fff,#fff 6px,#f36 6px,#f36 12px); border-radius: 4px; position: relative; }
+    .layer.base { bottom: 0; width: 100%; height: 70px; background: #ffc6db; }
+    .layer.mid { bottom: 70px; width: 80%; height: 50px; background: #ffd166; }
+    .layer.top { bottom: 120px; width: 60%; height: 35px; background: #9ad0f5; }
+    .candles { position: absolute; left: 50%; bottom: 160px; transform: translateX(-50%); display: flex; gap: 8px; }
+    .candle { width: 10px; height: 35px; background: repeating-linear-gradient(180deg,#fff,#fff 6px,#f36 6px,#f36 12px); border-radius: 4px; position: relative; }
     .flame {
-      position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
-      width: 14px; height: 18px;
+      position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+      width: 12px; height: 16px;
       background: radial-gradient(circle at 50% 30%,#fff8 0 35%,transparent 36%),
                   radial-gradient(ellipse at 50% 70%,#ffe66d,#ff9b3d 60%);
       border-radius: 50%;
@@ -48,27 +50,33 @@
     }
     @keyframes flicker { from { transform: translateX(-50%) scale(1); } to { transform: translateX(-50%) scale(1.1); } }
 
-    /* Animated Link Button */
+    /* Button */
     .btn {
-      padding: 14px 30px;
-      font-size: 20px;
+      padding: 12px 26px;
+      font-size: 18px;
       font-weight: 700;
       color: #fff;
       background: linear-gradient(90deg,#ff8bd6,#7ad7ff);
-      border: none;
       border-radius: 50px;
-      cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 0 20px rgba(255,200,255,.6);
+      box-shadow: 0 0 15px rgba(255,200,255,.6);
       animation: pulse 1.5s infinite;
       transition: transform .2s;
-      margin-top: 10px; /* reduced spacing so no scroll on mobile */
     }
     .btn:hover { transform: scale(1.1); }
     @keyframes pulse {
-      0% { box-shadow: 0 0 10px #ff8bd6; }
-      50% { box-shadow: 0 0 25px #7ad7ff; }
-      100% { box-shadow: 0 0 10px #ff8bd6; }
+      0% { box-shadow: 0 0 8px #ff8bd6; }
+      50% { box-shadow: 0 0 18px #7ad7ff; }
+      100% { box-shadow: 0 0 8px #ff8bd6; }
+    }
+
+    /* Responsive tweak */
+    @media (max-width: 400px) {
+      .cake { width: 160px; height: 150px; }
+      .layer.base { height: 60px; }
+      .layer.mid { height: 40px; }
+      .layer.top { height: 30px; }
+      .btn { font-size: 16px; padding: 10px 22px; }
     }
   </style>
 </head>
