@@ -1,146 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    body {
-      margin: 0;
-      background-color: #000;
-      font-family: 'Arial', sans-serif;
-      overflow-x: hidden;
-      color: #fff;
-      overflow-y: hidden;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Wishes 🎉</title>
+  <style>
+    body{
+      margin:0;
+      font-family: system-ui, sans-serif;
+      background:linear-gradient(180deg,#0b0c1a,#0f1020);
+      color:#fff;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      min-height:100vh;
+      text-align:center;
+      padding: 20px 10px;
     }
-    
-    
-    .slides-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-top: 20px;
-      gap: 20px;
+    h2{
+      font-size:clamp(24px,5vw,40px);
+      margin-bottom:20px;
     }
 
-    .slide {
-      width: 170px;
-      height: 200px;
-      background: #222;
-      border: 2px solid #ff66b2;
-      border-radius: 15px;
-      box-shadow: 0 0 15px #ff66b2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      font-weight: bold;
-      text-align: center;
-      transition: transform 0.5s ease;
+    /* Slideshow default (desktop) */
+    .slideshow-container {
+      width: 280px;   /* portrait width */
+      height: 420px;  /* portrait height */
       position: relative;
+      margin: auto;
       overflow: hidden;
+      border-radius: 15px;
+      box-shadow:0 8px 20px rgba(0,0,0,.5);
     }
-
-    .slide img {
+    .slides {
+      display: none;
       width: 100%;
       height: 100%;
-      border-radius: 15px;
+    }
+    .slides img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-    }
-
-    .slide p {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      margin: 0;
-      background-color: rgb(255, 255, 255);
-      color:#000;
-      font-size: 0.6rem;
-      padding: 5px;
       border-radius: 15px;
     }
 
-    .sprinkles {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .sprinkle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: #ff66b2;
+    /* Dots */
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 5px 3px;
+      background-color: #bbb;
       border-radius: 50%;
-      animation: sprinkleFall 5s linear infinite;
-      opacity: 0.8;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+    .active {
+      background-color: #ff8bd6;
     }
 
-    @keyframes sprinkleFall {
-      0% {
-        transform: translateY(-10px) scale(1);
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
-      }
+    p{
+      margin-top:20px;
+      font-size:18px;
+      max-width:600px;
+      line-height:1.5;
     }
-
-    .message {
+    footer{
+      margin-top: 30px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #ffd36a;
       text-align: center;
-      margin: 40px 0;
-      font-size: 1.2rem;
-      color: #ffccff;
-      text-shadow: 0 0 10px #ff99cc;
     }
 
-    @media screen and (max-width: 768px) {
-      .slides-container {
-        flex-direction: column;
-        align-items: center;
+    /* Tablets */
+    @media (max-width: 768px) {
+      .slideshow-container {
+        width: 240px;
+        height: 360px;
       }
-      .slide {
-        width: 80%;
-        height: 150px;
+      p {
+        font-size: 16px;
       }
     }
-    </style>
+
+    /* Mobile */
+    @media (max-width: 480px) {
+      .slideshow-container {
+        width: 200px;
+        height: 300px;
+      }
+      h2 {
+        font-size: 22px;
+      }
+      p {
+        font-size: 15px;
+      }
+      footer {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="sprinkles" id="sprinkles"></div>
-    <div class="slides-container">
-        <div class="slide">
-            <img src="Meow.png" alt="Slide 1">
-            <p>Wishing you many more happy return of the day 🎈❤️</p>
-        </div>
-        <div class="slide">
-            <img src="Meow.png" alt="Slide 2">
-            <p>Happy birthday Mahi, I wish you have a wonderfull day on your birth day.Ithukun mela onnum ila Happy birthday✨</p>
-        </div>
+  <h2>💌 Special Wishes 💌</h2>
+
+  <div class="slideshow-container">
+    <div class="slides fade">
+      <img src="photo1.jpg" alt="Happy Moment 1">
+    </div>
+    <div class="slides fade">
+      <img src="photo2.jpg" alt="Happy Moment 2">
+    </div>
   </div>
 
-  <!-- Final Message -->
-  <div class="message">🎁 Treat is more Important madam ❤️</div>
-   <script>
-    // Sprinkle generator
-    const sprinkleContainer = document.getElementById('sprinkles');
-    for (let i = 0; i < 50; i++) {
-      const sprinkle = document.createElement('div');
-      sprinkle.classList.add('sprinkle');
-      sprinkle.style.left = Math.random() * 100 + 'vw';
-      sprinkle.style.animationDuration = 3 + Math.random() * 3 + 's';
-      sprinkle.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
-      sprinkleContainer.appendChild(sprinkle);
-    }
-    </script>
-</body>
+  <div style="text-align:center;margin-top:10px">
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+  </div>
 
+  <p>
+    Wishing you a day filled with love, laughter, and all the cake you can eat.  
+    May this year bring you happiness, success, and endless memories! 🎂🎉
+  </p>
+
+  <footer>
+    Treat is more important madam 😋🍫
+  </footer>
+
+  <script>
+    let slideIndex = 0;
+    showSlides();
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("slides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 3000); // Change every 3 seconds
+    }
+  </script>
+</body>
 </html>
 
