@@ -2,127 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday! 🎉</title>
   <style>
-    body {
-      margin: 0;
-      background-color: #000;
-      font-family: 'Arial', sans-serif;
-      overflow-x: hidden;
-      color: #fff;
-      overflow-y: hidden;
+    body{
+      margin:0;
+      font-family: system-ui, sans-serif;
+      color:#fff;
+      background:linear-gradient(180deg,#0b0c1a,#0f1020);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      text-align:center;
     }
+    h1{
+      font-size: clamp(32px, 6vw, 64px);
+      font-weight:800;
+      margin-bottom:40px;
+      background:linear-gradient(90deg,#ff8bd6,#ffd36a,#7ad7ff,#c692ff);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      animation: shimmer 6s linear infinite;
+    }
+    @keyframes shimmer{from{background-position:0%}to{background-position:400%}}
 
-    h1 {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 2rem;
-      color: #ff66b2;
-      text-shadow: 0 0 15px #ff66b2;
-    }
+    /* Cake styles */
+    .cake{position:relative;width:220px;height:200px;margin:auto}
+    .layer{position:absolute;left:50%;transform:translateX(-50%);border-radius:14px}
+    .layer.base{bottom:0;width:100%;height:80px;background:#ffc6db}
+    .layer.mid{bottom:80px;width:80%;height:60px;background:#ffd166}
+    .layer.top{bottom:140px;width:60%;height:40px;background:#9ad0f5}
+    .candles{position:absolute;left:50%;bottom:180px;transform:translateX(-50%);display:flex;gap:10px}
+    .candle{width:12px;height:40px;background:repeating-linear-gradient(180deg,#fff,#fff 6px,#f36 6px,#f36 12px);border-radius:4px;position:relative}
+    .flame{position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:14px;height:18px;
+      background:radial-gradient(circle at 50% 30%,#fff8 0 35%,transparent 36%),radial-gradient(ellipse at 50% 70%,#ffe66d,#ff9b3d 60%);
+      border-radius:50%;filter:drop-shadow(0 0 10px #ffb600);
+      animation:flicker .25s infinite alternate}
+    @keyframes flicker{from{transform:translateX(-50%) scale(1)}to{transform:translateX(-50%) scale(1.1)}}
 
-    #cake {
-      width: 250px;
-      display: block;
-      margin: 20px auto;
-      animation: glowCake 2s ease-in-out infinite alternate;
-      filter: drop-shadow(0 0 15px #ff007f) drop-shadow(0 0 30px #ff66b2);
-    }
-
-    @keyframes glowCake {
-      from {
-        filter: drop-shadow(0 0 5px #ff007f) drop-shadow(0 0 10px #ff66b2);
-      }
-      to {
-        filter: drop-shadow(0 0 20px #ff007f) drop-shadow(0 0 40px #ff66b2);
-      }
-    }
-    
-    .sprinkles {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .sprinkle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: #ff66b2;
-      border-radius: 50%;
-      animation: sprinkleFall 5s linear infinite;
-      opacity: 0.8;
-    }
-
-    @keyframes sprinkleFall {
-      0% {
-        transform: translateY(-10px) scale(1);
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
-      }
-    }
+    /* Animated Button (link) */
     .btn{
-      display: flex;
-      justify-content: center;
+      margin-top:40px;
+      padding:14px 30px;
+      font-size:20px;
+      font-weight:700;
+      color:#fff;
+      background:linear-gradient(90deg,#ff8bd6,#7ad7ff);
+      border:none;
+      border-radius:50px;
+      cursor:pointer;
+      box-shadow:0 0 20px rgba(255,200,255,.6);
+      animation:pulse 1.5s infinite;
+      transition:transform .2s;
+      text-decoration:none;
+      display:inline-block;
     }
-
-    .btn button {
-      margin-top: 50px;
-      padding: 10px 30px;
-      background-color: #ff007f;
-      color: white;
-      border-radius: 40px;
-      border: 2px solid #ff007f;
-      box-shadow: 0 0 10px #ff007f;
-      font-size: 14px;
-      font-weight: 600;
-      transition: .5s;
-      cursor: pointer;
+    .btn:hover{
+      transform:scale(1.1);
     }
-
-    .btn-sci a {
-      text-decoration: none;
-      color: white;
+    @keyframes pulse{
+      0%{box-shadow:0 0 10px #ff8bd6;}
+      50%{box-shadow:0 0 25px #7ad7ff;}
+      100%{box-shadow:0 0 10px #ff8bd6;}
     }
-
-    
   </style>
 </head>
 <body>
-
-  <div class="sprinkles" id="sprinkles"></div>
-
-  <h1>🎉 Happy Birthday Mahi 🎂</h1>
-
-  <!-- Glowing Cake -->
-  <img src="delicious-birthday-cake-hand-drawn-style.png" alt="Glowing Cake" id="cake" />
-
-  <!-- Slides with wishes -->
-  <div class="btn">
-    <button class="btn-sci" ><a href="next.html">Click Here</a></button>
+  <h1>🎉 Happy Birthday! 🎂</h1>
+  <div class="cake">
+    <div class="candles">
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+    </div>
+    <div class="layer top"></div>
+    <div class="layer mid"></div>
+    <div class="layer base"></div>
   </div>
-
-  <script>
-    // Sprinkle generator
-    const sprinkleContainer = document.getElementById('sprinkles');
-    for (let i = 0; i < 50; i++) {
-      const sprinkle = document.createElement('div');
-      sprinkle.classList.add('sprinkle');
-      sprinkle.style.left = Math.random() * 100 + 'vw';
-      sprinkle.style.animationDuration = 3 + Math.random() * 3 + 's';
-      sprinkle.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
-      sprinkleContainer.appendChild(sprinkle);
-    }
-  </script>
+  
+  <!-- Changed button to link -->
+  <a href="page2.html" class="btn">Click Here</a>
 </body>
 </html>
+
+
 
 
