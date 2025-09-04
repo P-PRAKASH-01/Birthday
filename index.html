@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+      background-size: 800% 800%;
+      animation: bgAnimation 12s ease infinite;
+    }
+
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 1.3em;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 0 0 10px #ff80ab, 0 0 20px #ff4081, 0 0 30px #e91e63;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #ff80ab, 0 0 10px #ff4081, 0 0 15px #e91e63; }
+      to { text-shadow: 0 0 20px #ff80ab, 0 0 30px #ff4081, 0 0 40px #e91e63; }
+    }
+
+    img {
+      max-width: 250px;
+      width: 80%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      background: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1em;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .btn:hover {
+      background: #e91e63;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎂Janma dhina Asamshagal Mahi ❤️</h1>
+  <img src="delicious-birthday-cake-hand-drawn-style.png" alt="Birthday Cake">
+  <a href="second.html" class="btn">Click Here</a>
+</body>
+</html>
