@@ -1,62 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ml">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Birthday Wishes</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday 🎉</title>
   <style>
+    :root {
+      --blue-1: #0f62fe;
+      --blue-2: #2aa4ff;
+      --accent: #ffd166;
+    }
+    * { box-sizing: border-box; margin:0; padding:0; }
     body {
       margin: 0;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: linear-gradient(135deg, #a18cd1, #fbc2eb);
       min-height: 100vh;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      color: #fff;
+      background: radial-gradient(circle at 10% 10%, #0b6bff 0%, #065fd6 20%, #08345f 60%, #021428 100%);
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
     }
-    .content {
-      flex: 1;
+    .stage {
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 40px rgba(1,16,40,0.6);
+      position: relative;
     }
+    header { margin-bottom: 16px; }
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--blue-1), var(--blue-2));
+      display: grid;
+      place-items: center;
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 auto 12px;
+      box-shadow: 0 6px 18px rgba(2,22,60,0.6);
+    }
+    h1 { margin: 0; font-size: clamp(20px, 3vw, 28px); }
+    p.lead { margin: 0; opacity: 0.95; font-size: .98rem; color: #dbeaff; }
+
+    /* ✅ Your portrait style (centered) */
     .portrait {
       max-width: 300px;
       width: 90%;
       height: auto;
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      margin: 20px 0;
+      margin: 20px auto;
+      display: block;
     }
+
     .wish {
-      color: white;
-      font-size: 1.2em;
-      font-weight: bold;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 4px #333;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      margin: 10px auto 20px;
+      color: #f0f8ff;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.45);
+      max-width: 480px;
     }
+    .wish .emoji { font-size: 1.2rem; margin-right: 6px }
     footer {
-      background: rgba(0,0,0,0.2);
-      padding: 10px;
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .btn {
+      background: linear-gradient(90deg, var(--blue-1), var(--blue-2));
       color: white;
-      font-weight: bold;
+      padding: 10px 14px;
       border-radius: 10px;
-      margin-top: 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 8px 22px rgba(2,20,60,0.45);
+    }
+    .note {
+      background: rgba(255,255,255,0.02);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #eaf4ff;
+    }
+    #confetti {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      border-radius: 16px;
+      z-index: 5;
     }
   </style>
 </head>
 <body>
-  <div class="content">
-    <img src="IMG_20250825_205846_646.jpg" alt="Friend Photo 1" class="portrait">
-    <p class="wish"> ✨ May your special day be filled with love and laughter.Forget the sadness thing happend
-      in the life.Be happy like in the Photo!!! ✨</p>
+  <div class="stage">
+    <canvas id="confetti"></canvas>
+    <header>
+      <div class="logo">M</div>
+      <h1>Happy Birthday Mahi🫂</h1>
+      <p class="lead">— enjoy the moment 🎉</p>
+    </header>
 
-    <img src="IMG_20250825_205846_646.jpg" alt="Friend Photo 2" class="portrait">
-    <p class="wish">✨ I wish The happiness will be never end.Just Enjoy
-      the Moment with your clg Frds, Again Happy Birthday Mahi ❤️.Enjoy your day with happy  ❤️🫂✨</p>
+    <!-- Portrait 1 + Wish -->
+    <img class="portrait" src="birthday1.jpeg" alt="Fr">
+    <p class="wish"><span class="emoji">🌸</span><strong>May your special day be filled with love and laughter.</strong><br>
+      Forget the sad things that happened — be happy like the photo!!! Smile and enjoy every moment. 😄</p>
+
+    <!-- Portrait 2 + Wish -->
+    <img class="portrait" src="birthday2.jpeg" alt="fr">
+    <p class="wish"><span class="emoji">✨</span> I wish The happiness will be never end.Just Enjoy
+      the Moment with your clg Frds, Again ജന്മദിനാശംസകൾ Mahi ❤️.Enjoy your day with happy  ❤️🫂</p>
+    <footer>
+      <div class="note">🎉 Treat is more important, Madam 😋</div>
+      <button id="celebrate" class="btn">Celebrate 🎈</button
+    </footer>
   </div>
 
-  <footer>
-    🎂Treat is More Important Madam 😋
-  </footer>
+<script>
+  // Confetti animation with mobile optimization
+  (function(){
+    const canvas=document.getElementById('confetti');
+    const ctx=canvas.getContext('2d');
+    let W,H;
+    function resize(){
+      W=canvas.width=canvas.offsetWidth;
+      H=canvas.height=canvas.offsetHeight;
+    }
+    window.addEventListener('resize',resize);resize();
+
+    // Detect small screens
+    const isMobile = window.innerWidth < 480;
+
+    const colors=['#ffd166','#ff7b7b','#8ec5ff','#7be495','#c4b5fd','#ffd1f0'];
+    const confetti=[];
+    for(let i=0;i<100;i++){
+      confetti.push({
+        x:Math.random()*W,
+        y:Math.random()*H - H,
+        w:(isMobile ? 2 : 6) + Math.random()*(isMobile ? 3 : 4), // smaller on mobile
+        h:(isMobile ? 2 : 6) + Math.random()*(isMobile ? 3 : 4),
+        vx:-1+Math.random()*2,
+        vy:(isMobile ? 0.5 : 1) + Math.random()*(isMobile ? 1.5 : 3), // slower on mobile
+        r:Math.random()*360,
+        vr:-4+Math.random()*8,
+        c:colors[Math.floor(Math.random()*colors.length)]
+      });
+    }
+
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      confetti.forEach(p=>{
+        ctx.save();
+        ctx.translate(p.x,p.y);
+        ctx.rotate(p.r*Math.PI/180);
+        ctx.fillStyle=p.c;
+        ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+        ctx.restore();
+
+        p.x+=p.vx;
+        p.y+=p.vy;
+        p.r+=p.vr*0.6;
+
+        if(p.y>H+20){p.y=-30;p.x=Math.random()*W;}
+        if(p.x>W+30)p.x=-30;
+        if(p.x<-30)p.x=W+30;
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+
+    // extra burst on button click
+    document.getElementById('celebrate').addEventListener('click',()=>{
+      confetti.forEach(p=>{
+        p.vy=(isMobile ? 1.5 : 2)+Math.random()*(isMobile ? 3 : 5);
+        p.vx=-4+Math.random()*8;
+        p.y=Math.random()*(H/2);
+      });
+    });
+  })();
+</script>
 </body>
 </html>
