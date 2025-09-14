@@ -1,71 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-      background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
-      background-size: 800% 800%;
-      animation: bgAnimation 12s ease infinite;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Page</title>
+<style>
+  /* Dark blue linear gradient background */
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    text-align: center;
+    color: #ffffff;
+    background: radial-gradient(circle at 10% 10%, #0b6bff 0%, #065fd6 20%, #08345f 60%, #021428 100%);
+  }
 
-    @keyframes bgAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+  h1 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #ffffff; /* visible on dark background */
+  }
 
-    h1 {
-      font-size: 1.3em;
-      margin-bottom: 20px;
-      color: #fff;
-      text-shadow: 0 0 10px #ff80ab, 0 0 20px #ff4081, 0 0 30px #e91e63;
-      animation: glow 2s infinite alternate;
-    }
+  /* Cake container for glow */
+  .cake-container {
+    position: relative;
+    margin-bottom: 30px;
+  }
 
-    @keyframes glow {
-      from { text-shadow: 0 0 5px #ff80ab, 0 0 10px #ff4081, 0 0 15px #e91e63; }
-      to { text-shadow: 0 0 20px #ff80ab, 0 0 30px #ff4081, 0 0 40px #e91e63; }
-    }
+  /* Glow behind cake with pulsing animation */
+  .cake-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(77,166,255,0.6) 0%, rgba(77,166,255,0) 70%);
+    border-radius: 50%;
+    filter: blur(25px);
+    z-index: -1;
+    animation: pulse 2.5s infinite alternate;
+  }
 
-    img {
-      max-width: 250px;
-      width: 80%;
-      height: auto;
-      margin-bottom: 20px;
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0.95);
+      opacity: 0.7;
     }
+    50% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.05);
+      opacity: 0.7;
+    }
+  }
 
-    .btn {
-      padding: 12px 25px;
-      background: #ff4081;
-      color: white;
-      border: none;
-      border-radius: 30px;
-      font-size: 1em;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-    .btn:hover {
-      background: #e91e63;
-    }
-  </style>
+  /* Cake Image */
+  .cake-img {
+    width: 250px;
+    height: auto;
+    border-radius: 15px;
+  }
+
+  /* Pink Click Here button */
+  .btn {
+    padding: 10px 25px;
+    font-size: 16px;
+    background: linear-gradient(to right, #ff66b2, #ff3399);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: transform 0.2s, background 0.3s;
+  }
+
+  .btn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(to right, #ff3399, #e60073);
+  }
+</style>
 </head>
 <body>
-  <h1>🎂 Janmadina Ashamsakal Mahi ❤️</h1>
-  <img src="delicious-birthday-cake-hand-drawn-style.png" alt="Birthday Cake">
-  <a href="second.html" class="btn">Click Here</a>
+
+<h1>🎂 Janmadina ashamsakal Mahi ❤️</h1>
+
+<!-- Cake Photo with Blue Glow -->
+<div class="cake-container">
+  <img src="delicious-birthday-cake-hand-drawn-style.png" alt="Birthday Cake" class="cake-img">
+</div>
+
+<a href="second.html" class="btn">Click Here</a>
+
 </body>
 </html>
